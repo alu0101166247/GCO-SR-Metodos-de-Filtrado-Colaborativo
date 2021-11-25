@@ -7,6 +7,7 @@
   <title>GCO</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <link href="css/materialize.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="js/data.js"></script>
 </head>
@@ -32,48 +33,49 @@
   </div>
 
   <!-- Contenido -->
-  <div class="row">
-
+  <div class="contenedor row">
     <!-- Area izquierda -->
-    <div class="col s6">
+    <div class="col s12 m6">
       <div class="center">
-
+        <!-- Métrica elegida - Tipo de predicción - Nro de vecinos considerados -->
+        <div class="space">
+          <div class="col s6 m4">
+            <select id="metrica" class="browser-default">
+              <option value="" disabled selected>Métrica</option>
+              <option value="1.1">Correlación de Pearson</option>
+              <option value="1.2">Distancia coseno</option>
+              <option value="1.3">Distancia Euclídea</option>
+            </select>
+          </div>
+          <div class="col s6 m4">
+            <select id="prediccion" class="browser-default">
+              <option value="" disabled selected>Tipo de predicción</option>
+              <option value="2.1">Predicción simple</option>
+              <option value="2.2">Diferencia con la media</option>
+            </select>
+          </div>
+          <div class="col s12 m4">
+            <input class="center" id="num_vecinos" type="number" placeholder="Nro de vecinos considerados">
+          </div>
+        </div>
+        <!-- Boton de cargar archivo -->
+        <input class="space" type='file' onchange="read(this);" />
         <!-- Matriz cargada -->
-        <p id="matriz"></p>
-
-        <!-- Métrica elegida - Tipo de predicción -->
-        <div class="col s6">
-          <select id="metrica" class="browser-default">
-            <option value="" disabled selected>Métrica</option>
-            <option value="1.1">Correlación de Pearson</option>
-            <option value="1.2">Distancia coseno</option>
-            <option value="1.3">Distancia Euclídea</option>
-          </select>
-        </div>
-        <div class="col s6">
-          <select id="prediccion" class="browser-default">
-            <option value="" disabled selected>Tipo de predicción</option>
-            <option value="2.1">Predicción simple</option>
-            <option value="2.2">Diferencia con la media</option>
-          </select>
-        </div>
-
-        <!-- Numero de vecinos considerados -->
-        <input class="center" id="num_vecinos" type="number" placeholder="Numero de vecinos considerados">
-
-        <!-- Boton cargar -->
-        <a class="waves-effect waves-light btn-small white-text" id="cargar_matriz" onclick="cargarMatriz()">
-          <i class="material-icons right white-text">send</i>
-          Cargar Matriz
-        </a>
-
+        <h5 class="space" id="matrizOriginal"></h5>
       </div>
     </div>
 
     <!-- Area derecha -->
-    <div class="col s6">
+    <div class="col s12 m6">
       <div class="center">
-
+        <!-- Boton cargar -->
+        <a class="space waves-effect waves-light btn-small white-text" type="file" id="cargar_matriz"
+          onclick="predecir()">
+          <i class="material-icons right white-text">send</i>
+          Predecir
+        </a>
+        <!-- Prediccion -->
+        <h5 class="space" id="matrizNueva"></h5>
       </div>
     </div>
   </div>
