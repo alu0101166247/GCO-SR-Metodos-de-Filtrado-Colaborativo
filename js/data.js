@@ -5,15 +5,15 @@ class Person {
     this.matrizCoor = [];
     this.promedio = this.promedio();
     if (metrica == "1.1") { // Correlacion de Pearson
-      this.matrizCorrelaciones();
+      this.setMatrizCorrZero();
       this.calcPearson();
     }
     if (metrica == "1.2") { // Distancia Coseno
-      this.matrizCorrelaciones();
+      this.setMatrizCorrZero();
       this.calcCoseno();
     }
     if (metrica == "1.3") { // Distancia Euclidea
-      this.matrizCorrelaciones();
+      this.setMatrizCorrZero();
       this.calcEuclidea();
     }
   }
@@ -37,7 +37,7 @@ class Person {
   correlacion(persona) {
     return this.matrizCoor[this.person][persona];
   }
-  matrizCorrelaciones() {
+  setMatrizCorrZero() {
     for (let x = 0; x < this.matrix.length; x++) {
       this.matrizCoor[x] = new Array(this.matrix.length);
     }
@@ -130,7 +130,7 @@ let myMatrix = [];
 let currentPerson;
 let out = "";
 
-function rek() {
+function guiones() {
   for (a in myMatrix) {
     for (b in myMatrix[a]) {
       if (myMatrix[a][b] == '-') {
@@ -197,7 +197,7 @@ function predecir() {
       salidahtml.innerHTML = "Numero de vecinos incorrecto";
     } else {
       let button = document.querySelector(".button");
-      while (rek()) {
+      while (guiones()) {
         for (x in myMatrix) {
           for (w in myMatrix[x]) {
             if (myMatrix[x][w] == '-') {

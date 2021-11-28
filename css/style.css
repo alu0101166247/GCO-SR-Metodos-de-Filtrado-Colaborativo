@@ -3,7 +3,7 @@
 }
 
 .contenedor {
-    min-height: calc(100vh - 180px - 179px);
+    min-height: calc(100vh - 179px - 178px);
 }
 
 textarea {
