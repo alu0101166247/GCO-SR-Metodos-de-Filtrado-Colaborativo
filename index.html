@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script type="text/javascript" src="js/data.js"></script>
 </head>
+
 <body>
   <!-- Nav bar -->
   <header>
@@ -59,32 +61,40 @@
         </div>
         <!-- Matriz cargada -->
         <div class="center">
-        <textarea class="space" id="matrizOriginal"></textarea>
+          <textarea class="space" id="matrizOriginal"></textarea>
+        </div>
       </div>
     </div>
-  </div>
-  <!-- Area derecha -->
-  <div class="col s12 m6">
-    <div class="center">
-      <!-- Boton cargar -->
-      <button disabled class="button space waves-effect waves-light btn-small white-text" type="file" id="cargar_matriz"
-        onclick="predecir()">
-        <i class="material-icons right white-text">send</i>
-        Predecir
-      </button>
+    <!-- Area derecha -->
+    <div class="col s12 m6">
+      <div class="center">
+        <!-- Boton cargar -->
+        <button disabled class="button space waves-effect waves-light btn-small white-text" type="file"
+          id="cargar_matriz" onclick="predecir()">
+          <i class="material-icons right white-text">equalizer</i>
+          Predecir
+        </button>
+      </div>
+      <div class="center">
+        <!-- Prediccion -->
+        <textarea class="space" id="matrizNueva"></textarea>
+      </div>
+      <div class="center">
+        <!-- Boton cargar -->
+        <a class="space waves-effect waves-light btn-small white-text" onclick="window.location.reload();">
+          <i class="material-icons right white-text">cached</i>
+          Recargar
+        </a>
+      </div>
+      <div class="center">
+        <!-- Boton Git -->
+        <a class="space waves-effect waves-light btn-small white-text"
+          href="https://github.com/alu0101166247/GCO-Sistema-de-recomendacion">
+          <i class="material-icons right white-text">device_hub</i>
+          Volver a GitHub
+        </a>
+      </div>
     </div>
-    <div class="center">
-      <!-- Prediccion -->
-      <textarea class="space" id="matrizNueva"></textarea>
-    </div>
-    <div class="center">
-      <!-- Boton cargar -->
-      <a class=" space waves-effect waves-light btn-small white-text" type="file" id="cargar_matriz"
-        onclick="window.location.reload();">
-        Recargar
-    </a>
-    </div>
-  </div>
   </div>
   <!-- Footer -->
   <footer class="deep-purple page-footer">
@@ -107,4 +117,5 @@
     </div>
   </footer>
 </body>
+
 </html>
