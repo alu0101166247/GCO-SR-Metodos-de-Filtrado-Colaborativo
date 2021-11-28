@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,11 +8,9 @@
   <link href="css/materialize.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script src="js/data.js"></script>
+  <script type="text/javascript" src="js/data.js"></script>
 </head>
-
 <body>
-
   <!-- Nav bar -->
   <header>
     <nav>
@@ -22,7 +19,6 @@
       </div>
     </nav>
   </header>
-
   <!-- Titulo -->
   <div class="blue white-text center">
     <div class="container">
@@ -31,7 +27,6 @@
       </div>
     </div>
   </div>
-
   <!-- Contenido -->
   <div class="contenedor row">
     <!-- Area izquierda -->
@@ -41,7 +36,7 @@
         <div class="space">
           <div class="col s6 m4">
             <select id="metrica" class="browser-default">
-              <option value="" disabled selected>Métrica</option>
+              <option value="1" selected disabled>Métrica</option>
               <option value="1.1">Correlación de Pearson</option>
               <option value="1.2">Distancia coseno</option>
               <option value="1.3">Distancia Euclídea</option>
@@ -49,7 +44,7 @@
           </div>
           <div class="col s6 m4">
             <select id="prediccion" class="browser-default">
-              <option value="" disabled selected>Tipo de predicción</option>
+              <option value="2" selected disabled>Tipo de predicción</option>
               <option value="2.1">Predicción simple</option>
               <option value="2.2">Diferencia con la media</option>
             </select>
@@ -59,27 +54,38 @@
           </div>
         </div>
         <!-- Boton de cargar archivo -->
-        <input class="space" type='file' onchange="read(this);" />
+        <div class="center">
+          <input class="space" type='file' onchange="read(this);" />
+        </div>
         <!-- Matriz cargada -->
-        <h5 class="space" id="matrizOriginal"></h5>
-      </div>
-    </div>
-
-    <!-- Area derecha -->
-    <div class="col s12 m6">
-      <div class="center">
-        <!-- Boton cargar -->
-        <a class="space waves-effect waves-light btn-small white-text" type="file" id="cargar_matriz"
-          onclick="predecir()">
-          <i class="material-icons right white-text">send</i>
-          Predecir
-        </a>
-        <!-- Prediccion -->
-        <h5 class="space" id="matrizNueva"></h5>
+        <div class="center">
+        <textarea class="space" id="matrizOriginal"></textarea>
       </div>
     </div>
   </div>
-
+  <!-- Area derecha -->
+  <div class="col s12 m6">
+    <div class="center">
+      <!-- Boton cargar -->
+      <button disabled class="button space waves-effect waves-light btn-small white-text" type="file" id="cargar_matriz"
+        onclick="predecir()">
+        <i class="material-icons right white-text">send</i>
+        Predecir
+      </button>
+    </div>
+    <div class="center">
+      <!-- Prediccion -->
+      <textarea class="space" id="matrizNueva"></textarea>
+    </div>
+    <div class="center">
+      <!-- Boton cargar -->
+      <a class=" space waves-effect waves-light btn-small white-text" type="file" id="cargar_matriz"
+        onclick="window.location.reload();">
+        Recargar
+    </a>
+    </div>
+  </div>
+  </div>
   <!-- Footer -->
   <footer class="deep-purple page-footer">
     <div class="container">
@@ -100,7 +106,5 @@
       </div>
     </div>
   </footer>
-
 </body>
-
 </html>

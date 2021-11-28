@@ -5,3 +5,8 @@
 .contenedor {
     min-height: calc(100vh - 180px - 179px);
 }
+
+textarea {
+    min-height: calc(100vh - 180px - 179px - 180px);
+    width: 70%;
+}
