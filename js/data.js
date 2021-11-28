@@ -141,7 +141,7 @@ function guiones() {
   return false;
 }
 
-function vecinosProximos(num, currentPerson) {
+function vecinosProximos(num, currentPerson, euclidea) {
   let outF = [];
   out += `\rVecinos seleccionados:\r`;
   let outV = "";
@@ -150,15 +150,15 @@ function vecinosProximos(num, currentPerson) {
     const dupla = { vecino: x, valor: currentPerson.matrizCoor[currentPerson.person][x] };
     array.push(dupla);
   }
-  array.sort(function (a, b) {
-    if (a.valor < b.valor) {
-      return 1;
-    }
-    if (a.valor > b.valor) {
-      return -1;
-    }
-    return 0;
-  });
+  if (euclidea == "1.3") {
+    array.sort(function (a, b) {
+      return a.valor - b.valor;
+    });
+  } else {
+    array.sort(function (a, b) {
+      return b.valor - a.valor;
+    });
+  }
   for (let i = 0; i < num; i++) {
     if (array[i].vecino != currentPerson.getPerson) {
       outF.push(array[i].vecino);
@@ -206,7 +206,7 @@ function predecir() {
                 let item;
                 let top = 0;
                 let bot = 0;
-                let vecinos = vecinosProximos(num, currentPerson);
+                let vecinos = vecinosProximos(num, currentPerson, metrica);
                 for (let i = 0; i < vecinos.length; i++) {
                   top += currentPerson.matrizCoor[currentPerson.getPerson][vecinos[i]] * myMatrix[vecinos[i]][w];
                 }
@@ -227,7 +227,7 @@ function predecir() {
                 let item;
                 let top = 0;
                 let bot = 0;
-                let vecinos = vecinosProximos(num, currentPerson);
+                let vecinos = vecinosProximos(num, currentPerson, metrica);
                 for (let i = 0; i < vecinos.length; i++) {
                   top += (currentPerson.matrizCoor[currentPerson.getPerson][vecinos[i]] * (myMatrix[vecinos[i]][w] - promedioPersona(myMatrix, vecinos[i])));
                 }
